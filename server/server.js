@@ -28,6 +28,13 @@ app.post("/user", function(req, res) {
   }
 });
 
+app.put("/user/:id", function(req, res) {
+  let id = req.params.id;
+  res.json({
+    id
+  });
+});
+
 app.listen(process.env.PORT, () => {
   console.log("Listening from port: ", process.env.PORT);
 });
