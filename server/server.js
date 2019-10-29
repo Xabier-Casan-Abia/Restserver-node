@@ -28,7 +28,7 @@ app.post("/user", function(req, res) {
   }
 });
 
-app.put("/user/:id", function(req, res) {
+app.patch("/user/:id", function(req, res) {
   let id = req.params.id;
   res.json({
     id
