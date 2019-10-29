@@ -35,6 +35,10 @@ app.put("/user/:id", function(req, res) {
   });
 });
 
+app.delete("/user", function(req, res) {
+  res.json("DELETE User");
+});
+
 app.listen(process.env.PORT, () => {
   console.log("Listening from port: ", process.env.PORT);
 });
