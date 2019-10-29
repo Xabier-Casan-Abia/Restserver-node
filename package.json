@@ -4,6 +4,8 @@
   "description": "rest server",
   "main": "index.js",
   "scripts": {
+    "start": "node server/server.js",
+    "nodemon": "nodemon server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Xabier Casán",
