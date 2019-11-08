@@ -38,6 +38,7 @@ app.patch("/user/:id", function(req, res) {
   });
 });
 
+//DELETE
 app.delete("/user", function(req, res) {
   res.json("DELETE User");
 });
