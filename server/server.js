@@ -30,6 +30,7 @@ app.post("/user", function(req, res) {
   }
 });
 
+//PATCH
 app.patch("/user/:id", function(req, res) {
   let id = req.params.id;
   res.json({
