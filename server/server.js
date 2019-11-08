@@ -15,6 +15,7 @@ app.get("/user", function(req, res) {
   res.json("GET User");
 });
 
+//POST
 app.post("/user", function(req, res) {
   let body = req.body;
   if (!body.name) {
