@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+// GET
 app.get("/user", function(req, res) {
   res.json("GET User");
 });
