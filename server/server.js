@@ -15,7 +15,7 @@ app.get("/user", function(req, res) {
   res.json("GET User");
 });
 
-//POST
+// POST
 app.post("/user", function(req, res) {
   let body = req.body;
   if (!body.name) {
@@ -30,7 +30,7 @@ app.post("/user", function(req, res) {
   }
 });
 
-//PATCH
+// PATCH
 app.patch("/user/:id", function(req, res) {
   let id = req.params.id;
   res.json({
@@ -38,12 +38,12 @@ app.patch("/user/:id", function(req, res) {
   });
 });
 
-//DELETE
+// DELETE
 app.delete("/user", function(req, res) {
   res.json("DELETE User");
 });
 
-//PORT
+// PORT
 app.listen(process.env.PORT, () => {
   console.log("Listening from port: ", process.env.PORT);
 });
