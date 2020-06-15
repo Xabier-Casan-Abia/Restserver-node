@@ -2,10 +2,11 @@ const express = require("express");
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
 const User = require('../models/user');
+const { tokenVerification, admin_roleVerification } = require('../middlewares/authentication');
 const app = express();
 
 // GET
-app.get("/user", function(req, res) {
+app.get("/user", tokenVerification, (req, res) => {
 
     let from = Number(req.query.from) || 0;
     let limit = Number(req.query.limit) || 10;
@@ -36,7 +37,7 @@ app.get("/user", function(req, res) {
 });
 
 // POST
-app.post("/user", function(req, res) {
+app.post("/user", [tokenVerification, admin_roleVerification], (req, res) => {
     let body = req.body;
 
     let user = new User({
@@ -53,7 +54,7 @@ app.post("/user", function(req, res) {
                 ok: false,
                 err
             });
-        };
+        }
 
         res.json({
             ok: true,
@@ -64,7 +65,7 @@ app.post("/user", function(req, res) {
 });
 
 // PATCH
-app.patch("/user/:id", function(req, res) {
+app.patch("/user/:id", [tokenVerification, admin_roleVerification], (req, res) => {
     let id = req.params.id;
     let body = _.pick(req.body, ['name', 'email', 'img', 'role', 'status']);
 
@@ -75,7 +76,7 @@ app.patch("/user/:id", function(req, res) {
                 ok: false,
                 err
             });
-        };
+        }
 
         res.json({
             ok: true,
@@ -86,7 +87,7 @@ app.patch("/user/:id", function(req, res) {
 });
 
 // DELETE
-app.delete("/user/:id", function(req, res) {
+app.delete("/user/:id", [tokenVerification, admin_roleVerification], (req, res) => {
 
     let id = req.params.id;
 
@@ -101,7 +102,7 @@ app.delete("/user/:id", function(req, res) {
                 ok: false,
                 err
             });
-        };
+        }
 
         if (!deletedUser) {
             return res.status(400).json({
@@ -110,7 +111,7 @@ app.delete("/user/:id", function(req, res) {
                     message: 'User not found'
                 }
             });
-        };
+        }
 
         res.json({
             ok: true,

@@ -11,8 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-// require users.js
-app.use(require("./routes/user"));
+// global configutation of routes
+app.use(require("./routes/index"));
 
 // connect database with mongoose
 mongoose.connect(process.env.URLDB, {
