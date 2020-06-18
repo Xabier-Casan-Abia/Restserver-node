@@ -5,7 +5,7 @@
 process.env.PORT = process.env.PORT || 3000;
 
 // =============================
-// ENVIROMENT
+// Enviroment
 //==============================
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
@@ -36,7 +36,13 @@ process.env.TOKEN_EXPIRATION = 60 * 60 * 72 * 30;
 
 
 // ============================
-// SEED
+// Seed
 // ============================
 
 process.env.SEED = process.env.SEED || 'developing seed';
+
+// ============================
+// Google Client ID
+// ============================
+
+process.env.CLIENT_ID = process.env.CLIENT_ID || "620555602465-ohehblo82der34a8t82k20femisg533k.apps.googleusercontent.com";
