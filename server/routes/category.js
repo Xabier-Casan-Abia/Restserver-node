@@ -28,7 +28,7 @@ app.get('/category', tokenVerification, (req, res) => {
         })
 });
 
-// All Categories by id
+// One category per id
 app.get('/category/:id', tokenVerification, (req, res) => {
 
     let id = req.params.id;
